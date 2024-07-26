@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f0f0f0;
+            background-color: #ffccff; /* Màu hồng */
             margin: 0;
             padding: 0;
         }
@@ -62,7 +62,7 @@
     </div>
 
     <div id="final-message">
-        <p>Mong rằng chúng mình sẽ bên nhau lâu thậc lâu hơn nha</p>
+        <p>Mong rằng chúng mình sẽ bên nhau lâu thậc lâu hơn nha!!!!!</p>
     </div>
 
     <div id="love-message">
@@ -88,6 +88,7 @@
         const messageDiv = document.getElementById('message');
         messageDiv.innerHTML = `Chúng ta đã bên nhau được <strong>${years} NĂM ${months} THÁNG ${days} NGÀY</strong>! Nhấn vào đây để xem hình ảnh!`;
         messageDiv.style.cursor = 'pointer';
+        messageDiv.style.display = 'block'; // Hiển thị thông điệp ngay lập tức
 
         // Hiển thị hình ảnh khi nhấp chuột
         messageDiv.onclick = function() {
@@ -106,7 +107,7 @@
                 setTimeout(() => {
                     images[currentImage - 1].style.display = 'none';
                     showImages();
-                }, 1500); // Hiển thị mỗi ảnh trong 3 giây
+                }, 1500); // Hiển thị mỗi ảnh trong 1.5 giây
             } else {
                 // Hiển thị thông điệp tình yêu sau khi trình chiếu xong
                 setTimeout(() => {
