@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+    font-size: 3em;
+    color: #ff6f61;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.message {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #333;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.image {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: zoomIn 4s ease-in-out;
+}
+
+.surprise-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.surprise-button:hover {
+    background-color: #ff3d00;
+}
+
+.hidden-message {
+    font-size: 1.5em;
+    color: #ff6f61;
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
