@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chúc Mừng Ngày Kỉ Niệm</title>
+    <title>💞💞💞💞💞💞💞💞💞💞</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +11,8 @@
             background-color: #ffccff; /* Màu hồng */
             margin: 0;
             padding: 0;
+            position: relative; /* Để đặt trái tim ở vị trí tuyệt đối */
+            overflow: hidden; /* Ẩn các phần tử ra ngoài */
         }
         h1 {
             color: #ff6347; /* Màu đỏ */
@@ -23,6 +25,10 @@
         }
         #image-slider {
             margin-top: 20px;
+            display: flex;
+            justify-content: center; /* Căn giữa ảnh */
+            align-items: center;
+            flex-direction: column; /* Đặt ảnh theo cột */
         }
         img {
             width: 30%; /* Giảm kích thước ảnh xuống 1/3 */
@@ -43,27 +49,34 @@
         .heart {
             color: red;
             font-size: 30px; /* Kích thước trái tim */
+            position: absolute; /* Đặt trái tim ở vị trí tuyệt đối */
+            animation: float 3s ease-in-out infinite; /* Hiệu ứng nhấp nháy */
         }
         .blink {
             animation: blink-animation 1s steps(5, start) infinite; /* Hiệu ứng nhấp nháy */
         }
         @keyframes blink-animation {
-            to {
-                visibility: hidden; /* Thay đổi độ hiển thị */
-            }
+            0% { color: black; }
+            50% { color: red; }
+            100% { color: black; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <h1>Cảm ơn cậu vì đã ở bên tui tới một năm gưỡi lun nhe <3</h1>
+    <h1>Cảm ơn cậu vì đã ở bên tui tới một năm gưỡi lun nhe</h1>
     
     <div id="message"></div>
     
     <div id="image-slider">
         <!-- Tạo 25 thẻ img cho trình chiếu -->
         <script>
-            for (let i = 1; i <= 24; i++) {
+            for (let i = 1; i <= 25; i++) {
                 document.write(`<img src="anh${i}.jpg" alt="Hình ảnh ${i}" id="img${i}">`);
             }
         </script>
@@ -115,13 +128,23 @@
                 setTimeout(() => {
                     images[currentImage - 1].style.display = 'none';
                     showImages();
-                }, 1500); // Hiển thị mỗi ảnh trong 3 giây
+                }, 3000); // Hiển thị mỗi ảnh trong 3 giây
             } else {
                 // Hiển thị thông điệp tình yêu sau khi trình chiếu xong
                 setTimeout(() => {
                     document.getElementById('love-message').style.display = 'block';
                 }, 1000); // Hiển thị sau 1 giây khi kết thúc trình chiếu
             }
+        }
+
+        // Thêm nhiều trái tim vào nền
+        for (let i = 0; i < 20; i++) { // Thêm 20 trái tim
+            const heart = document.createElement('span');
+            heart.className = 'heart';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw'; // Vị trí ngang ngẫu nhiên
+            heart.style.top = Math.random() * 100 + 'vh'; // Vị trí dọc ngẫu nhiên
+            document.body.appendChild(heart);
         }
     </script>
 
