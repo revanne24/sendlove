@@ -3,38 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chúc Mừng Kỉ Niệm Một Năm Gưỡi Nghe</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffccff; /* Màu hồng */
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            color: #ff6347; /* Màu đỏ */
-            margin-top: 50px;
-        }
-        #message {
-            display: none;
-            margin-top: 20px;
-            font-size: 24px;
-        }
-        #image-slider {
-            margin-top: 20px;
-        }
-        img {
-            width: 80%;
-            height: auto;
-            border-radius: 10px;
-            display: none;
-        }
-        #final-message {<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chúc Mừng Ngày Kỉ Niệm</title>
     <style>
         body {
@@ -55,13 +23,12 @@
         }
         #image-slider {
             margin-top: 20px;
-            display: none; /* Ẩn khu vực trình chiếu hình ảnh */
         }
         img {
-            width: 80%;
+            width: 30%; /* Giảm kích thước ảnh xuống 1/3 */
             height: auto;
             border-radius: 10px;
-            display: none; /* Ẩn tất cả hình ảnh */
+            display: none;
         }
         #final-message {
             margin-top: 30px;
@@ -77,101 +44,19 @@
             color: red;
             font-size: 30px; /* Kích thước trái tim */
         }
-    </style>
-</head>
-<body>
-
-    <h1>Chúc Mừng Ngày Kỉ Niệm!</h1>
-    
-    <div id="message"></div>
-    
-    <div id="image-slider">
-        <!-- Tạo 25 thẻ img cho trình chiếu -->
-        <script>
-            for (let i = 1; i <= 25; i++) {
-                document.write(`<img src="anh${i}.jpg" alt="Hình ảnh ${i}" id="img${i}">`);
+        .blink {
+            animation: blink-animation 1s steps(5, start) infinite; /* Hiệu ứng nhấp nháy */
+        }
+        @keyframes blink-animation {
+            to {
+                visibility: hidden; /* Thay đổi độ hiển thị */
             }
-        </script>
-    </div>
-
-    <div id="final-message">
-        <p>Tình yêu của chúng ta mãi mãi bền vững!</p>
-    </div>
-
-    <div id="love-message">
-        <span class="heart">❤️</span>
-        IU THƯƠNG CẬU NHẤT TRÊN ĐỜI
-        <span class="heart">❤️</span>
-        <span class="heart">❤️</span>
-    </div>
-
-    <script>
-        // Ngày bắt đầu
-        const startDate = new Date('2023-01-25'); // Thay đổi ngày bắt đầu ở đây
-        const today = new Date();
-        const timeDiff = today - startDate;
-
-        // Tính số năm, tháng, ngày
-        const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const years = Math.floor(totalDays / 365);
-        const months = Math.floor((totalDays % 365) / 30);
-        const days = totalDays % 30;
-
-        // Hiển thị số ngày
-        const messageDiv = document.getElementById('message');
-        messageDiv.innerHTML = `Chúng ta đã bên nhau được <strong>${years} NĂM ${months} THÁNG ${days} NGÀY</strong>! Nhấn vào đây để xem hình ảnh!`;
-        messageDiv.style.cursor = 'pointer';
-        messageDiv.style.display = 'block'; // Hiển thị thông điệp ngay lập tức
-
-        // Hiển thị hình ảnh khi nhấp chuột
-        messageDiv.onclick = function() {
-            messageDiv.style.display = 'none';
-            document.getElementById('image-slider').style.display = 'block'; // Hiển thị khu vực trình chiếu hình ảnh
-            showImages();
-        };
-
-        // Trình chiếu hình ảnh
-        let currentImage = 0;
-        const images = document.querySelectorAll('#image-slider img');
-        function showImages() {
-            images[currentImage].style.display = 'block';
-            currentImage++;
-
-            if (currentImage < images.length) {
-                setTimeout(() => {
-                    images[currentImage - 1].style.display = 'none';
-                    showImages();
-                }, 3000); // Hiển thị mỗi ảnh trong 3 giây
-            } else {
-                // Hiển thị thông điệp tình yêu sau khi trình chiếu xong
-                setTimeout(() => {
-                    document.getElementById('love-message').style.display = 'block';
-                }, 1000); // Hiển thị sau 1 giây khi kết thúc trình chiếu
-            }
-        }
-    </script>
-
-</body>
-</html>
-
-            margin-top: 30px;
-            font-size: 20px;
-            color: #555;
-        }
-        #love-message {
-            display: none;
-            margin-top: 30px;
-            font-size: 24px;
-        }
-        .heart {
-            color: red;
-            font-size: 30px; /* Kích thước trái tim */
         }
     </style>
 </head>
 <body>
 
-    <h1>Cảm ơn cậu vì đã bên tui suốt hơn một năm qua nha!!!!!!</h1>
+    <h1>Cảm ơn cậu vì đã ở bên tui tới một năm gưỡi lun nhe <3</h1>
     
     <div id="message"></div>
     
@@ -185,7 +70,7 @@
     </div>
 
     <div id="final-message">
-        <p>Mong rằng chúng mình sẽ bên nhau lâu thậc lâu hơn nha!!!!!</p>
+        <p>Mong rằng mình sẽ bên nhau lâu thật lâu hơn nhaaaaaaaaaaaaaaa</p>
     </div>
 
     <div id="love-message">
@@ -209,7 +94,7 @@
 
         // Hiển thị số ngày
         const messageDiv = document.getElementById('message');
-        messageDiv.innerHTML = `Chúng ta đã bên nhau được <strong>${years} NĂM ${months} THÁNG ${days} NGÀY</strong>! Nhấn vào đây để xem hình ảnh!`;
+        messageDiv.innerHTML = `Chúng ta đã bên nhau được <strong>${years} NĂM ${months} THÁNG ${days} NGÀY</strong>! <span class="blink">Nhấn vào đây đi nè!!!</span>`;
         messageDiv.style.cursor = 'pointer';
         messageDiv.style.display = 'block'; // Hiển thị thông điệp ngay lập tức
 
@@ -230,7 +115,7 @@
                 setTimeout(() => {
                     images[currentImage - 1].style.display = 'none';
                     showImages();
-                }, 1500); // Hiển thị mỗi ảnh trong 1.5 giây
+                }, 1500); // Hiển thị mỗi ảnh trong 3 giây
             } else {
                 // Hiển thị thông điệp tình yêu sau khi trình chiếu xong
                 setTimeout(() => {
