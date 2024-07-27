@@ -108,7 +108,7 @@
     </div>
 
     <audio id="background-music" loop>
-        <source src="your-music-file.mp3" type="audio/mpeg">
+        <source src="nhacnen.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -173,14 +173,17 @@
         };
 
         // Phát nhạc nền ngay khi tải trang
-        window.onload = function() {
+        window.addEventListener('load', () => {
+            // Sử dụng tương tác người dùng để phát nhạc
+            document.body.addEventListener('click', () => {
+                audio.play();
+            }, { once: true });
+
+            // Thử phát nhạc tự động
             audio.play().catch(() => {
-                // Đôi khi trình duyệt cần tương tác người dùng để phát nhạc
-                document.body.addEventListener('click', () => {
-                    audio.play();
-                }, { once: true });
+                console.log('Tương tác người dùng cần thiết để phát nhạc.');
             });
-        };
+        });
     </script>
 
 </body>
