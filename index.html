@@ -17,11 +17,15 @@
         h1 {
             color: #ff6347; /* Màu đỏ */
             margin-top: 50px;
+            position: relative; /* Đảm bảo chữ nằm trên trái tim */
+            z-index: 2; /* Z-index cao hơn trái tim */
         }
         #message {
             display: none;
             margin-top: 20px;
             font-size: 24px;
+            position: relative; /* Đảm bảo chữ nằm trên trái tim */
+            z-index: 2; /* Z-index cao hơn trái tim */
         }
         #image-slider {
             margin-top: 20px;
@@ -36,24 +40,28 @@
             border-radius: 10px;
             display: none;
             position: relative; /* Đảm bảo không bị che bởi trái tim */
-            z-index: 1; /* Đặt z-index cao hơn cho ảnh */
+            z-index: 2; /* Z-index cao hơn trái tim */
         }
         #final-message {
             margin-top: 30px;
             font-size: 20px;
             color: #555;
+            position: relative; /* Đảm bảo chữ nằm trên trái tim */
+            z-index: 2; /* Z-index cao hơn trái tim */
         }
         #love-message {
             display: none;
             margin-top: 30px;
             font-size: 24px;
+            position: relative; /* Đảm bảo chữ nằm trên trái tim */
+            z-index: 2; /* Z-index cao hơn trái tim */
         }
         .heart {
             color: red;
             font-size: 30px; /* Kích thước trái tim */
             position: absolute; /* Đặt trái tim ở vị trí tuyệt đối */
             animation: float 3s ease-in-out infinite; /* Hiệu ứng nhấp nháy */
-            z-index: 0; /* Đặt z-index thấp hơn cho trái tim */
+            z-index: 1; /* Z-index thấp hơn tất cả các phần tử khác */
         }
         .blink {
             animation: blink-animation 1s steps(5, start) infinite; /* Hiệu ứng nhấp nháy */
@@ -68,7 +76,7 @@
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
-		audio {
+        audio {
             display: none; /* Ẩn trình phát nhạc */
         }
     </style>
@@ -82,7 +90,7 @@
     <div id="image-slider">
         <!-- Tạo 25 thẻ img cho trình chiếu -->
         <script>
-            for (let i = 1; i <= 24; i++) {
+            for (let i = 1; i <= 25; i++) {
                 document.write(`<img src="anh${i}.jpg" alt="Hình ảnh ${i}" id="img${i}">`);
             }
         </script>
@@ -98,16 +106,15 @@
         <span class="heart">❤️</span>
         <span class="heart">❤️</span>
     </div>
-	
-	 <audio id="background-music" loop>
-        <source src="nhacnen.mp3" type="audio/mpeg">
+
+    <audio id="background-music" loop>
+        <source src="your-music-file.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-
     <script>
         // Ngày bắt đầu
-        const startDate = new Date('2023-01-25'); // Thay đổi ngày bắt đầu ở đây
+        const startDate = new Date('2023-01-26'); // Thay đổi ngày bắt đầu ở đây
         const today = new Date();
         const timeDiff = today - startDate;
 
@@ -158,10 +165,21 @@
             heart.style.top = Math.random() * 100 + 'vh'; // Vị trí dọc ngẫu nhiên
             document.body.appendChild(heart);
         }
-		// Phát nhạc nền
-        window.onload = function() {
-            const audio = document.getElementById('background-music');
+
+        // Phát nhạc nền khi nhấp chuột vào màn hình
+        const audio = document.getElementById('background-music');
+        document.body.onclick = function() {
             audio.play();
+        };
+
+        // Phát nhạc nền ngay khi tải trang
+        window.onload = function() {
+            audio.play().catch(() => {
+                // Đôi khi trình duyệt cần tương tác người dùng để phát nhạc
+                document.body.addEventListener('click', () => {
+                    audio.play();
+                }, { once: true });
+            });
         };
     </script>
 
